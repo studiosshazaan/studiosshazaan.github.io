@@ -4,51 +4,67 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy – Wheel of Inspiration</title>
+  <meta name="description" content="Privacy Policy for Wheel of Inspiration by Studios Shazaan." />
   <style>
     :root {
       --bg: #0f0d14;
       --panel: #17131f;
+      --panel-soft: rgba(255,255,255,0.055);
       --text: #f5f2eb;
       --muted: #c7c0b5;
       --accent: #f0ba6a;
+      --accent-soft: rgba(240,186,106,0.12);
       --line: rgba(255,255,255,0.12);
+      --good: #9ee6b5;
+      --warn: #ffd08a;
     }
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(180deg, #120f19 0%, var(--bg) 100%);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(240,186,106,0.10), transparent 34%),
+        linear-gradient(180deg, #120f19 0%, var(--bg) 100%);
       color: var(--text);
       line-height: 1.65;
     }
     .wrap {
-      max-width: 920px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 40px 20px 72px;
     }
     .card {
-      background: rgba(23, 19, 31, 0.9);
+      background: rgba(23, 19, 31, 0.92);
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      padding: clamp(20px, 4vw, 32px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.28);
       backdrop-filter: blur(10px);
     }
-    h1, h2 { line-height: 1.15; }
+    h1, h2, h3 { line-height: 1.15; }
     h1 {
       margin: 0 0 12px;
       font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
     }
     h2 {
-      margin-top: 34px;
+      margin-top: 38px;
       margin-bottom: 12px;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       color: var(--accent);
+    }
+    h3 {
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 1.04rem;
+      color: var(--text);
     }
     p, li { color: var(--text); }
     .muted, .muted p { color: var(--muted); }
     ul { padding-left: 1.2rem; }
-    a { color: var(--accent); }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    strong { color: #fffaf1; }
     code, .placeholder {
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       background: rgba(255,255,255,0.08);
@@ -57,16 +73,84 @@
     }
     .notice {
       border-left: 4px solid var(--accent);
-      background: rgba(240,186,106,0.08);
+      background: var(--accent-soft);
       padding: 14px 16px;
       border-radius: 14px;
       margin: 20px 0 8px;
       color: var(--muted);
     }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+    }
+    .summary div, .toc {
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    .summary b {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+    .toc {
+      margin: 20px 0 28px;
+    }
+    .toc h2 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+    }
+    .toc ol {
+      columns: 2;
+      column-gap: 28px;
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.86rem;
+      margin: 4px 4px 4px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      background: rgba(255,255,255,0.08);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    tr:last-child td { border-bottom: 0; }
     hr {
       border: 0;
       border-top: 1px solid var(--line);
-      margin: 28px 0;
+      margin: 30px 0;
+    }
+    @media (max-width: 720px) {
+      .summary { grid-template-columns: 1fr; }
+      .toc ol { columns: 1; }
+      .wrap { padding: 24px 12px 52px; }
+      table { display: block; overflow-x: auto; }
     }
   </style>
 </head>
@@ -74,130 +158,269 @@
   <main class="wrap">
     <div class="card">
       <h1>Privacy Policy for Wheel of Inspiration</h1>
-      <p class="muted"><strong>Effective date:</strong> 1 April 2026</p>
+      <p class="muted"><strong>Effective date:</strong> 5 May 2026</p>
       <p class="muted"><strong>Developer:</strong> Studios Shazaan</p>
-      <p class="muted"><strong>Website:</strong> <a href="https://studiosshazaan.github.io/wheelofnspiration">https://studiosshazaan.github.io/wheelofnspiration</a></p>
-      <p class="muted"><strong>Privacy contact:</strong> <span class="placeholder">studiosshazaan@gmail.com</span></p>
+      <p class="muted"><strong>Privacy Policy URL:</strong> <a href="https://studiosshazaan.github.io/wheel_of_inspiration_privacy_policy">https://studiosshazaan.github.io/wheel_of_inspiration_privacy_policy</a></p>
+      <p class="muted"><strong>Privacy contact:</strong> <a href="mailto:studiosshazaan@gmail.com">studiosshazaan@gmail.com</a></p>
 
-      <h2>1. Introduction</h2>
+      <div class="notice">
+        <strong>Plain-language summary:</strong> Wheel of Inspiration mainly stores your favorites, settings, reminders, widgets, presets, and exported creations locally on your device. The free version uses ads, and optional features such as stock media, purchases, analytics, and crash reporting may involve trusted third-party services.
+      </div>
+
+      <section class="summary" aria-label="Privacy summary">
+        <div>
+          <b>No account required</b>
+          You can use the app without creating a Studios Shazaan account.
+        </div>
+        <div>
+          <b>Local-first app data</b>
+          Favorites, recent quotes, reminders, presets, widget settings, and many preferences are stored on your device.
+        </div>
+        <div>
+          <b>Ads and purchases</b>
+          Google AdMob may show ads in the free version. Google Play handles purchases and payment processing.
+        </div>
+        <div>
+          <b>User-selected media</b>
+          Photos, videos, and audio files you choose are used so the editor/export features can work.
+        </div>
+      </section>
+
+      <nav class="toc" aria-label="Quick navigation">
+        <h2>Quick navigation</h2>
+        <ol>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#information-we-collect">Information We Collect</a></li>
+          <li><a href="#local-storage">Information Stored Locally</a></li>
+          <li><a href="#permissions">Permissions We Request</a></li>
+          <li><a href="#how-we-use">How We Use Information</a></li>
+          <li><a href="#third-party-services">Third-Party Services</a></li>
+          <li><a href="#ads">Ads and Monetization</a></li>
+          <li><a href="#analytics-crashes">Analytics and Crash Reports</a></li>
+          <li><a href="#media-editor">Media, Editor, and Exports</a></li>
+          <li><a href="#sharing">Sharing of Information</a></li>
+          <li><a href="#retention">Data Retention</a></li>
+          <li><a href="#choices">Your Choices and Controls</a></li>
+          <li><a href="#children">Children’s Privacy</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="introduction">1. Introduction</h2>
       <p>
         This Privacy Policy explains how Wheel of Inspiration (“the App”, “we”, “us”, or “our”) handles information when you use our mobile app.
-        Wheel of Inspiration is designed to help users discover quotes, save favorites, schedule reminders, use a home screen widget, and create quote-based images and videos for personal use and sharing.
-      </p>
-
-      <h2>2. Information We Collect</h2>
-      <p>We may collect or process information in the following categories:</p>
-      <ul>
-        <li><strong>App content and settings you create or choose.</strong> This can include favorites, selected quote categories, recent quotes, notification settings, theme choices, saved editor presets, export preferences, and premium entitlement state.</li>
-        <li><strong>Media you choose to use.</strong> If you choose a photo, image, video, or audio file from your device for editing or export, the App may access that file so the feature can work.</li>
-        <li><strong>Generated files.</strong> When you export quote images or videos, the App may create temporary files and, if you choose, save final files to your gallery or device storage.</li>
-        <li><strong>Third-party service data.</strong> If you use ads, in-app purchases, stock images, stock videos, or stock audio, third-party providers may receive technical information such as device data, app interaction data, IP address, search terms, or purchase-related information as needed to provide those services.</li>
-      </ul>
-
-      <h2>3. Information We Store Locally on Your Device</h2>
-      <p>
-        Much of the App’s functionality works by storing data locally on your device rather than on our own servers. This may include favorites, recent quote history, notification schedules, selected categories, saved editor presets, theme preferences, and certain premium access flags.
+        Wheel of Inspiration helps users discover quotes, save favorites, schedule reminders, use a home screen widget, and create quote-based images and videos for personal use and sharing.
       </p>
       <p>
-        The App also includes a local quotes database packaged with the App to provide quote browsing and search features.
+        This policy applies to the Wheel of Inspiration mobile app and related app features published by Studios Shazaan.
       </p>
 
-      <h2>4. Permissions We Request</h2>
-      <p>The App may request access to the following device features or permissions:</p>
+      <h2 id="information-we-collect">2. Information We Collect or Process</h2>
+      <p>Depending on how you use the App, we or our service providers may collect or process the following categories of information:</p>
       <ul>
-        <li><strong>Notifications:</strong> to schedule and display quote reminders.</li>
-        <li><strong>Internet access:</strong> to load ads, process in-app purchases, and retrieve stock media or audio from third-party providers.</li>
-        <li><strong>Photos, media, or storage:</strong> to let you choose background images or videos and to save exports to your device.</li>
-        <li><strong>Boot or restart handling (Android):</strong> so scheduled reminders can continue working after a device restart, where supported.</li>
-        <li><strong>Home screen widget support (Android):</strong> to display quotes and support widget actions such as refresh, share, or favorite.</li>
+        <li><strong>App content and settings you create or choose.</strong> This can include favorites, selected quote categories, recent quotes, notification settings, widget settings, theme choices, saved editor presets, export preferences, and premium entitlement state.</li>
+        <li><strong>Media you choose to use.</strong> If you choose a photo, image, video, or audio file from your device for editing, preview, export, or sharing, the App may access that selected file so the feature can work.</li>
+        <li><strong>Generated files.</strong> When you export quote images or videos, the App may create temporary files and, if you choose, save final files to your gallery, files, or selected device storage location.</li>
+        <li><strong>Search terms for optional stock media.</strong> If you use stock image, stock video, or stock audio search, your search term may be sent to the relevant stock-media provider to return results.</li>
+        <li><strong>Purchase-related information.</strong> If you buy or restore premium features, Google Play Billing may process purchase status, product identifiers, transaction information, and account-related purchase data. We do not receive your full payment card details.</li>
+        <li><strong>Advertising data.</strong> In the free version, advertising providers may collect or use device identifiers, advertising identifiers, approximate location derived from IP address, ad interaction events, diagnostics, and app usage data for ad delivery, measurement, fraud prevention, and personalization where permitted.</li>
+        <li><strong>Analytics and diagnostics.</strong> We may use analytics and crash-reporting tools to understand app performance, crashes, errors, device type, operating system, app version, feature usage, and related diagnostic information.</li>
+        <li><strong>Communications you send us.</strong> If you contact us by email, we may receive your email address and message content so we can respond.</li>
       </ul>
 
-      <h2>5. How We Use Information</h2>
+      <h2 id="local-storage">3. Information We Store Locally on Your Device</h2>
+      <p>
+        Much of the App’s functionality works by storing data locally on your device rather than on our own servers. This may include favorites, recent quote history, notification schedules, selected categories, widget settings, saved editor presets, theme preferences, recent creations, export preferences, and certain premium access flags.
+      </p>
+      <p>
+        The App includes a local quotes database packaged with the App to provide quote browsing and search features. Search indexing may also be created locally on your device to improve search performance.
+      </p>
+      <p>
+        Clearing app data or uninstalling the App will usually remove most local App data, except exported files that you saved separately to your gallery or files.
+      </p>
+
+      <h2 id="permissions">4. Permissions We Request</h2>
+      <p>The App may request access to the following device features or permissions, depending on your device and the features you use:</p>
+      <ul>
+        <li><strong>Notifications:</strong> to schedule and display quote reminders and related notification actions.</li>
+        <li><strong>Exact alarms or scheduled alarms:</strong> to deliver reminders at the time you choose, where supported by Android. If exact alarms are not available, the App may use inexact scheduling.</li>
+        <li><strong>Internet access:</strong> to load ads, process in-app purchases, retrieve optional stock media/audio, download or cache fonts, and send analytics or crash reports.</li>
+        <li><strong>Photos, media, audio, or storage:</strong> to let you choose background images, videos, or audio and to save or share exported creations.</li>
+        <li><strong>Boot or restart handling on Android:</strong> so scheduled reminders and widgets can continue working after a device restart, where supported.</li>
+        <li><strong>Home screen widget support on Android:</strong> to display quotes and support widget actions such as refresh, share, favorite, and opening the App.</li>
+        <li><strong>Vibration or haptics:</strong> to provide optional feedback for certain interactions where supported.</li>
+      </ul>
+
+      <h2 id="how-we-use">5. How We Use Information</h2>
       <p>We use information to:</p>
       <ul>
-        <li>provide quote browsing, search, favorites, and widget features;</li>
+        <li>provide quote browsing, search, favorites, collections, recent quote history, and widget features;</li>
         <li>schedule and manage local reminders and notifications;</li>
-        <li>let you create, preview, export, and share quote images and videos;</li>
-        <li>load optional stock images, stock videos, and stock audio when you choose to use those features;</li>
-        <li>show ads in the free version of the App;</li>
-        <li>process premium purchases, subscriptions, unlocks, or rewards; and</li>
-        <li>maintain app performance, reliability, and feature availability.</li>
+        <li>let you create, preview, export, save, and share quote images and videos;</li>
+        <li>load optional stock images, stock videos, stock audio, and fonts when you choose to use those features;</li>
+        <li>show and measure ads in the free version of the App;</li>
+        <li>process premium purchases, restore purchases, reward-based unlocks, and premium entitlement state;</li>
+        <li>improve app performance, reliability, troubleshooting, and feature quality;</li>
+        <li>detect, prevent, or investigate fraud, abuse, technical issues, or policy violations; and</li>
+        <li>respond to emails, support questions, or privacy requests you send us.</li>
       </ul>
 
-      <h2>6. Third-Party Services</h2>
+      <h2 id="third-party-services">6. Third-Party Services</h2>
       <p>The App may rely on third-party services, SDKs, or platforms such as:</p>
       <ul>
-        <li><strong>Google AdMob / Google Mobile Ads</strong> for app open, banner, interstitial, and rewarded ads.</li>
-        <li><strong>Google Play Billing and/or Apple in-app purchase systems</strong> for subscriptions, premium upgrades, and purchase restoration.</li>
-        <li><strong>Pexels</strong> for optional stock image and stock video search.</li>
-        <li><strong>Freesound</strong> for optional stock audio search and preview.</li>
-        <li><strong>Device sharing features</strong> when you choose to share exported text, images, or videos using apps installed on your device.</li>
+        <li><strong>Google AdMob / Google Mobile Ads:</strong> for app open, banner, interstitial, and rewarded ads.</li>
+        <li><strong>Firebase Analytics:</strong> for app usage and performance analytics, where enabled.</li>
+        <li><strong>Firebase Crashlytics:</strong> for crash reports, error logs, diagnostics, and app stability monitoring.</li>
+        <li><strong>Google Play Billing:</strong> for premium upgrades, purchase processing, entitlement checks, and purchase restoration.</li>
+        <li><strong>Pexels:</strong> for optional stock image and stock video search and preview.</li>
+        <li><strong>Freesound:</strong> for optional stock audio search and preview.</li>
+        <li><strong>Google Fonts:</strong> for optional font loading or caching where a font is not already available locally.</li>
+        <li><strong>Device sharing features:</strong> when you choose to share exported text, images, or videos using apps installed on your device.</li>
       </ul>
       <p>
         These third parties may collect and process information under their own privacy policies. We do not control how third-party providers handle data once it is sent to them.
       </p>
 
-      <h2>7. Ads and Monetization</h2>
+      <h2 id="ads">7. Ads and Monetization</h2>
       <p>
-        The free version of the App may display ads. Advertising providers may collect or infer information such as device identifiers, IP address, approximate location derived from IP, ad interaction events, and app usage data to provide, improve, measure, or personalize ads, subject to their own policies and your device or region settings.
+        The free version of the App may display ads through Google AdMob or related Google advertising services. Advertising providers may collect or use information such as device identifiers, advertising ID, IP address, approximate location derived from IP, app interaction data, ad interaction data, diagnostics, and other technical information to provide, improve, measure, personalize, and secure advertising services, subject to their own policies and your device, Google account, consent, and regional settings.
       </p>
       <p>
-        The App may also offer premium features, subscriptions, one-time purchases, or reward-based unlocks. Payment transactions are handled by the relevant app store or billing provider, not directly by us.
+        You can manage some ad personalization controls through your device settings and Google account settings where available. Your options may vary by country, device, Android version, and Google settings.
+      </p>
+      <p>
+        The App may also offer premium features, one-time purchases, subscriptions, or reward-based unlocks. Payment transactions are handled by Google Play or the relevant app-store billing provider, not directly by us.
       </p>
 
-      <h2>8. Sharing of Information</h2>
+      <h2 id="analytics-crashes">8. Analytics, Diagnostics, and Crash Reports</h2>
+      <p>
+        We may use analytics and crash-reporting tools to understand how the App performs and to fix errors. This may include app version, device model, operating system version, crash logs, performance diagnostics, feature usage events, and technical identifiers.
+      </p>
+      <p>
+        Crash reports and diagnostics help us identify bugs, improve stability, and understand whether features are working as expected. Analytics and diagnostics are not intended to identify you personally, but some technical identifiers or device information may be processed by the relevant service providers.
+      </p>
+
+      <h2 id="media-editor">9. Media, Editor, Widgets, and Exports</h2>
+      <p>
+        The editor lets you create quote images and videos using text, templates, fonts, photos, videos, audio, stock media, and styling options. Media files you select from your device are used so the editor, preview, export, and share features can work.
+      </p>
+      <p>
+        Generated images, videos, and temporary files may be stored locally while exporting or sharing. If you save an export to your gallery or files, that exported file remains there until you delete it.
+      </p>
+      <p>
+        Home screen widgets may store local widget settings such as selected category, visual style, quote content, and action state so the widget can display and refresh quotes.
+      </p>
+
+      <h2 id="sharing">10. Sharing of Information</h2>
       <p>We do not sell your personal information.</p>
-      <p>We may share information only in the following limited situations:</p>
+      <p>Information may be shared or processed in the following limited situations:</p>
       <ul>
-        <li>with service providers or SDK partners needed to operate ads, billing, stock media, and audio features;</li>
-        <li>when you intentionally share content using your device’s share features; or</li>
-        <li>if required by law, legal process, or to protect rights, safety, or security.</li>
+        <li>with service providers or SDK partners needed to operate ads, analytics, crash reporting, billing, stock media, fonts, and audio features;</li>
+        <li>when you intentionally share content using your device’s share sheet or another app;</li>
+        <li>when a third-party feature you choose requires sending a request, such as stock media or stock audio search;</li>
+        <li>to comply with law, legal process, enforceable requests, or to protect rights, safety, security, and app integrity; or</li>
+        <li>as part of business administration if required, such as maintaining service records or responding to support requests.</li>
       </ul>
 
-      <h2>9. Data Retention</h2>
+      <h2 id="data-safety">11. Google Play Data Safety Summary</h2>
+      <p>
+        The Google Play Data safety section is a summary shown on Google Play. The exact declarations in Play Console should match the current App build and features. Based on current App functionality, the App may involve the following data categories:
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Examples in the App</th>
+            <th>Typical purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>App activity</td>
+            <td>Feature usage, ad interactions, purchase-related app events, search actions for stock media</td>
+            <td>App functionality, analytics, advertising, fraud prevention</td>
+          </tr>
+          <tr>
+            <td>App info and performance</td>
+            <td>Crash logs, diagnostics, performance data, app version</td>
+            <td>Crash reporting, debugging, reliability improvement</td>
+          </tr>
+          <tr>
+            <td>Device or other IDs</td>
+            <td>Advertising ID, installation identifiers, device identifiers used by SDKs</td>
+            <td>Ads, analytics, fraud prevention, service operation</td>
+          </tr>
+          <tr>
+            <td>Photos, videos, or audio</td>
+            <td>Files you choose for editing/export or content you choose to save/share</td>
+            <td>App functionality, user-selected editing/export/sharing</td>
+          </tr>
+          <tr>
+            <td>Purchases</td>
+            <td>Premium product ID, purchase status, restore state</td>
+            <td>Billing, entitlement unlock, purchase restoration</td>
+          </tr>
+          <tr>
+            <td>Approximate location</td>
+            <td>Approximate location inferred from IP by ad or network providers</td>
+            <td>Ads, fraud prevention, service delivery, regional compliance</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="retention">12. Data Retention</h2>
       <ul>
         <li><strong>Local app data:</strong> usually remains on your device until you delete it, clear app storage, or uninstall the App.</li>
         <li><strong>Saved exports:</strong> remain in your gallery, files, or chosen storage location until you delete them.</li>
         <li><strong>Temporary files and cached media:</strong> may remain for a limited time until removed by the App, the operating system, or you.</li>
-        <li><strong>Third-party provider data:</strong> is retained according to the privacy policies and retention practices of those providers.</li>
+        <li><strong>Analytics, ads, billing, and crash data:</strong> are retained according to the privacy policies and retention practices of the relevant providers.</li>
+        <li><strong>Email support requests:</strong> may be retained as long as needed to respond to you, maintain support records, or comply with legal obligations.</li>
       </ul>
 
-      <h2>10. Your Choices and Controls</h2>
+      <h2 id="choices">13. Your Choices and Controls</h2>
       <p>You can usually control your information in the following ways:</p>
       <ul>
         <li>disable notifications in the App or through device settings;</li>
-        <li>remove favorites, presets, or reminders from within the App;</li>
+        <li>change or remove reminders, favorites, collections, presets, recent creations, and widget settings from within the App where available;</li>
         <li>delete exported media from your gallery or file manager;</li>
-        <li>clear app data or uninstall the App to remove most locally stored information; and</li>
-        <li>manage permissions, ad preferences, purchase settings, and privacy controls through your device, Google, or Apple account settings where applicable.</li>
+        <li>clear app data or uninstall the App to remove most locally stored App information;</li>
+        <li>manage app permissions such as notifications, media access, and alarms through your device settings;</li>
+        <li>manage ad personalization and advertising ID controls through your device or Google settings where available;</li>
+        <li>use Google Play purchase settings and order history for purchase-related controls; and</li>
+        <li>contact us at <a href="mailto:studiosshazaan@gmail.com">studiosshazaan@gmail.com</a> for privacy questions or requests.</li>
       </ul>
 
-      <h2>11. Security</h2>
+      <h2 id="security">14. Security</h2>
       <p>
-        We take reasonable steps to protect information handled by the App. However, no method of electronic storage, transmission, or device security is completely secure, and we cannot guarantee absolute security.
+        We take reasonable steps to protect information handled by the App. The App is designed to store many user preferences locally on your device, and network requests to service providers are generally transmitted over secure connections. However, no method of electronic storage, transmission, or device security is completely secure, and we cannot guarantee absolute security.
       </p>
 
-      <h2>12. Children’s Privacy</h2>
+      <h2 id="children">15. Children’s Privacy</h2>
       <p>
         Wheel of Inspiration is not intended for children under 13, and we do not knowingly collect personal information directly from children under 13. If you believe a child has provided personal information through the App, contact us so we can review the issue.
       </p>
 
-      <h2>13. International Users</h2>
+      <h2 id="international">16. International Users</h2>
       <p>
-        If you use third-party services through the App, your information may be processed in countries other than your own, depending on where those providers operate.
+        If you use the App or third-party services through the App, your information may be processed in countries other than your own, depending on where those providers operate. Data protection laws in those countries may differ from the laws where you live.
       </p>
 
-      <h2>14. Changes to This Privacy Policy</h2>
+      <h2 id="changes">17. Changes to This Privacy Policy</h2>
       <p>
         We may update this Privacy Policy from time to time. When we do, we will update the effective date at the top of this page. Your continued use of the App after changes become effective means you accept the updated policy.
       </p>
 
-      <h2>15. Contact Us</h2>
+      <h2 id="contact">18. Contact Us</h2>
       <p>
-        If you have questions, privacy requests, or concerns about this Privacy Policy or the App, contact us at <span class="placeholder">studiosshazaan@gmail.com</span>.
+        If you have questions, privacy requests, or concerns about this Privacy Policy or the App, contact us at <a href="mailto:studiosshazaan@gmail.com">studiosshazaan@gmail.com</a>.
       </p>
 
       <hr />
+      <p class="muted">
+        <span class="pill">Wheel of Inspiration</span>
+        <span class="pill">Studios Shazaan</span>
+        <span class="pill">Last updated: 5 May 2026</span>
+      </p>
     </div>
   </main>
 </body>
