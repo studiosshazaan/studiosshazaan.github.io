@@ -1,29 +1,43 @@
 # Wheel of Inspiration website
 
-A static GitHub Pages landing page for:
+Static GitHub Pages landing page for:
 
-https://studiosshazaan.github.io/wheelofnspiration
+https://studiosshazaan.github.io/wheelofinspiration/
 
-## Deploy
+## Deploy correctly
 
-1. Create or open the GitHub repository named `wheelofnspiration`.
+The images will only show if you upload the **entire folder contents**, including:
+
+- `index.html`
+- `404.html`
+- `favicon.png`
+- `assets/images/*`
+
+Do not upload only `index.html`.
+
+## GitHub Pages setup
+
+1. Open the GitHub repository named `wheelofinspiration`.
 2. Upload the contents of this folder to the repository root.
 3. In GitHub, go to **Settings → Pages**.
 4. Set **Source** to `Deploy from a branch`.
 5. Select `main` and `/root`, then Save.
 6. The site should publish at:
-   https://studiosshazaan.github.io/wheelofnspiration
+   https://studiosshazaan.github.io/wheelofinspiration/
 
-## Important edits before publishing
+## Live links already included
 
-- Replace the placeholder Google Play button URL (`href="#"`) with your actual Play Store listing URL once live.
-- Privacy Policy links point to:
-  https://studiosshazaan.github.io/wheel_of_inspiration_privacy_policy
+Google Play:
+https://play.google.com/store/apps/details?id=com.wheelofinspiration&hl=en
 
-## Files
+Privacy Policy:
+https://studiosshazaan.github.io/wheel_of_inspiration_privacy_policy
 
-- `index.html` – main landing page.
-- `404.html` – same page used as a fallback.
-- `assets/images/` – optimized images generated from the screenshots and marketing artwork supplied.
-- `favicon.png` – simple favicon generated from the marketing artwork.
+## If images still do not show
 
+Check that these URLs work after deployment:
+
+- https://studiosshazaan.github.io/wheelofinspiration/assets/images/hero-wide.jpg
+- https://studiosshazaan.github.io/wheelofinspiration/assets/images/app-icon.jpg
+
+If they 404, the `assets/images` folder was not uploaded to the repository root.
