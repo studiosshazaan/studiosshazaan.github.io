@@ -1,0 +1,166 @@
+{
+  "hero-wide.jpg": {
+    "source": "featured image lower res.png",
+    "source_size": [
+      1024,
+      500
+    ],
+    "output_size": [
+      1024,
+      500
+    ],
+    "bytes": 93115
+  },
+  "feature-wide.jpg": {
+    "source": "featured image.png",
+    "source_size": [
+      2048,
+      998
+    ],
+    "output_size": [
+      1800,
+      877
+    ],
+    "bytes": 218671
+  },
+  "create-video.jpg": {
+    "source": "create quote video.png",
+    "source_size": [
+      1152,
+      2048
+    ],
+    "output_size": [
+      1050,
+      1866
+    ],
+    "bytes": 247265
+  },
+  "daily-spark.jpg": {
+    "source": "discovery your spark.png",
+    "source_size": [
+      1152,
+      2048
+    ],
+    "output_size": [
+      1050,
+      1866
+    ],
+    "bytes": 229167
+  },
+  "search-quotes.jpg": {
+    "source": "Search for the perfect quote.png",
+    "source_size": [
+      1152,
+      2048
+    ],
+    "output_size": [
+      1050,
+      1866
+    ],
+    "bytes": 214045
+  },
+  "set-reminders.jpg": {
+    "source": "set reminders.png",
+    "source_size": [
+      1152,
+      2048
+    ],
+    "output_size": [
+      1050,
+      1866
+    ],
+    "bytes": 221134
+  },
+  "share-quotes.jpg": {
+    "source": "Share your quote.png",
+    "source_size": [
+      1638,
+      2048
+    ],
+    "output_size": [
+      1050,
+      1312
+    ],
+    "bytes": 228406
+  },
+  "journey.jpg": {
+    "source": "track streaks, levels and badges .png",
+    "source_size": [
+      1152,
+      2048
+    ],
+    "output_size": [
+      1050,
+      1866
+    ],
+    "bytes": 213059
+  },
+  "turn-videos.jpg": {
+    "source": "turn quotes to videos.png",
+    "source_size": [
+      1152,
+      2048
+    ],
+    "output_size": [
+      1050,
+      1866
+    ],
+    "bytes": 287303
+  },
+  "screen-home.jpg": {
+    "source": "Screenshot_20260401_095531.jpg",
+    "source_size": [
+      945,
+      2048
+    ],
+    "output_size": [
+      720,
+      1560
+    ],
+    "bytes": 105735
+  },
+  "screen-editor.jpg": {
+    "source": "Screenshot_20260401_095612.jpg",
+    "source_size": [
+      945,
+      2048
+    ],
+    "output_size": [
+      720,
+      1560
+    ],
+    "bytes": 110242
+  },
+  "screen-background.jpg": {
+    "source": "Screenshot_20260401_095915.jpg",
+    "source_size": [
+      945,
+      2048
+    ],
+    "output_size": [
+      720,
+      1560
+    ],
+    "bytes": 93453
+  },
+  "screen-export.jpg": {
+    "source": "Screenshot_20260401_095927.jpg",
+    "source_size": [
+      945,
+      2048
+    ],
+    "output_size": [
+      720,
+      1560
+    ],
+    "bytes": 68774
+  },
+  "app-icon.jpg": {
+    "source": "featured image.png crop",
+    "output_size": [
+      512,
+      512
+    ],
+    "bytes": 47785
+  }
+}
