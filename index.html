@@ -224,7 +224,7 @@
       box-shadow: var(--shadow), 0 0 0 1px rgba(240,186,106,.25);
       transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
     }
-    .hero-art img { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+    .hero-art img { width: 100%; aspect-ratio: 16/9; object-fit: contain; }
     .shine {
       position: absolute;
       inset: 0;
@@ -309,7 +309,7 @@
     .feature-card img {
       width: 100%;
       aspect-ratio: 4/5;
-      object-fit: cover;
+      object-fit: contain;
       transition: transform .5s ease;
     }
     .feature-card:hover img { transform: scale(1.035); }
@@ -342,7 +342,7 @@
     .wide-band img {
       width: 100%;
       aspect-ratio: 2.2/1;
-      object-fit: cover;
+      object-fit: contain;
     }
 
     .steps {
@@ -385,7 +385,7 @@
     }
     .phone-shot img {
       aspect-ratio: 9/19;
-      object-fit: cover;
+      object-fit: contain;
       width: 100%;
     }
     .phone-shot span {
