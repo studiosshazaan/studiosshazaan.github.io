@@ -58,3 +58,18 @@ This version adds:
 - premium hover/tap micro-interactions.
 
 No external JavaScript libraries are required.
+
+
+## Lightbox fix update
+
+This version removes the Daily Spark quote card and fixes the lightbox script order.
+
+After upload:
+1. Wait for GitHub Pages to deploy.
+2. Hard refresh the page with Ctrl + F5.
+3. Click any main image/poster.
+4. Test keyboard controls: Escape, Left, Right.
+
+If the cursor changes but nothing opens, the browser is probably still caching the older JavaScript. Open:
+`https://studiosshazaan.github.io/wheelofinspiration/lightbox-check.html`
+then hard refresh the main page.

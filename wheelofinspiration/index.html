@@ -500,78 +500,6 @@
       box-shadow: 0 0 18px rgba(240,186,106,.58);
       transition: width .08s linear;
     }
-
-    .spark-lab {
-      margin-top: 34px;
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 18px;
-      align-items: stretch;
-      padding: 0;
-    }
-    .spark-copy,
-    .spark-card {
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
-      border: 1px solid rgba(255,255,255,.13);
-      border-radius: 28px;
-      box-shadow: 0 18px 54px rgba(0,0,0,.28);
-    }
-    .spark-copy {
-      padding: 28px;
-    }
-    .spark-copy h2 {
-      margin: 16px 0 10px;
-      font-size: clamp(1.7rem, 3.3vw, 3rem);
-      line-height: 1.02;
-      letter-spacing: -.04em;
-    }
-    .spark-copy p {
-      color: var(--muted);
-      margin: 0;
-    }
-    .spark-card {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(26px, 4vw, 40px);
-      isolation: isolate;
-    }
-    .spark-card::before {
-      content: "";
-      position: absolute;
-      inset: -30%;
-      z-index: -1;
-      background:
-        radial-gradient(circle at 20% 15%, rgba(240,186,106,.22), transparent 24rem),
-        radial-gradient(circle at 80% 85%, rgba(184,103,255,.18), transparent 24rem);
-      transition: transform .5s ease;
-    }
-    .spark-card.spark-pop::before {
-      transform: rotate(8deg) scale(1.08);
-    }
-    .spark-mark {
-      font-family: Georgia, serif;
-      font-size: 5rem;
-      line-height: .6;
-      color: rgba(240,186,106,.75);
-      text-shadow: 0 0 20px rgba(240,186,106,.18);
-    }
-    .spark-card p {
-      margin: 10px 0 12px;
-      font-size: clamp(1.2rem, 2.5vw, 2rem);
-      line-height: 1.22;
-      font-weight: 900;
-      letter-spacing: -.025em;
-    }
-    .spark-card span {
-      color: var(--gold-2);
-      font-weight: 800;
-    }
-    .spark-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
     .btn.small {
       min-height: 40px;
       padding: 0 14px;
@@ -729,14 +657,6 @@
     }
 
     @media (max-width: 860px) {
-      .spark-lab { grid-template-columns: 1fr; }
-      .lightbox-nav {
-        top: auto;
-        bottom: 18px;
-        width: 46px;
-        height: 46px;
-        font-size: 2.2rem;
-      }
       .lightbox-nav.prev { left: calc(50% - 58px); }
       .lightbox-nav.next { right: calc(50% - 58px); }
       .lightbox-stage img { max-height: 72vh; }
@@ -756,6 +676,20 @@
         animation: none !important;
         transition: none !important;
       }
+    }
+
+  
+    /* Lightbox fix patch */
+    .lightbox-card img,
+    .poster-shot img,
+    .feature-card img,
+    .wide-band img,
+    .hero-art img,
+    .cta-panel img {
+      cursor: zoom-in;
+    }
+    .lightbox.open {
+      display: grid;
     }
 
   </style>
@@ -829,26 +763,7 @@
         <p>Build streaks, earn badges, and keep returning to inspiration.</p>
       </article>
     </section>
-
-    <section class="container spark-lab reveal" aria-label="Interactive daily spark">
-      <div class="spark-copy">
-        <span class="eyebrow">Try a daily spark</span>
-        <h2>Your next quote is one tap away.</h2>
-        <p>Tap the button to shuffle a little inspiration, just like the feeling inside the app.</p>
-      </div>
-      <div class="spark-card" id="sparkCard" role="group" aria-live="polite" aria-label="Daily inspiration quote">
-        <div class="spark-mark">“</div>
-        <p id="sparkQuote">The journey of a thousand miles begins with a single step.</p>
-        <span id="sparkAuthor">— Lao Tzu</span>
-        <div class="spark-actions">
-          <button type="button" class="btn primary small" id="newSparkBtn">New spark</button>
-          <button type="button" class="btn ghost small" id="copySparkBtn">Copy quote</button>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="features" class="section">
+<section id="features" class="section">
       <div class="container">
         <div class="section-title center reveal">
           <span class="eyebrow">Built for everyday inspiration</span>
@@ -1011,148 +926,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      }
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-    const progress = document.getElementById("scrollProgress");
-    const backTop = document.getElementById("backTop");
-
-    function updateScrollUI() {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      const percent = max > 0 ? (window.scrollY / max) * 100 : 0;
-      progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
-      backTop.classList.toggle("show", window.scrollY > 520);
-    }
-
-    window.addEventListener("scroll", updateScrollUI, { passive: true });
-    updateScrollUI();
-
-    backTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    const sparks = [
-      ["The journey of a thousand miles begins with a single step.", "Lao Tzu"],
-      ["Let the beauty of what you love be what you do.", "Rumi"],
-      ["Believe you can and you’re halfway there.", "Theodore Roosevelt"],
-      ["Small steps every day create remarkable change.", "Wheel of Inspiration"],
-      ["What you seek is already moving toward you.", "Inspired Wisdom"],
-      ["Start where you are. Use what you have. Do what you can.", "Arthur Ashe"],
-      ["Your daily spark can become tomorrow’s momentum.", "Wheel of Inspiration"]
-    ];
-
-    const sparkQuote = document.getElementById("sparkQuote");
-    const sparkAuthor = document.getElementById("sparkAuthor");
-    const sparkCard = document.getElementById("sparkCard");
-    const newSparkBtn = document.getElementById("newSparkBtn");
-    const copySparkBtn = document.getElementById("copySparkBtn");
-    let sparkIndex = 0;
-
-    function showSpark(nextIndex) {
-      sparkIndex = nextIndex % sparks.length;
-      const [quote, author] = sparks[sparkIndex];
-      sparkQuote.textContent = quote;
-      sparkAuthor.textContent = `— ${author}`;
-      sparkCard.classList.remove("spark-pop");
-      void sparkCard.offsetWidth;
-      sparkCard.classList.add("spark-pop");
-    }
-
-    newSparkBtn?.addEventListener("click", () => showSpark(sparkIndex + 1));
-
-    copySparkBtn?.addEventListener("click", async () => {
-      const text = `${sparkQuote.textContent} ${sparkAuthor.textContent}`;
-      try {
-        await navigator.clipboard.writeText(text);
-        copySparkBtn.textContent = "Copied";
-        setTimeout(() => copySparkBtn.textContent = "Copy quote", 1300);
-      } catch (_) {
-        copySparkBtn.textContent = "Select & copy";
-        setTimeout(() => copySparkBtn.textContent = "Copy quote", 1300);
-      }
-    });
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.getElementById("lightboxImage");
-    const lightboxCaption = document.getElementById("lightboxCaption");
-    const lightboxClose = document.getElementById("lightboxClose");
-    const lightboxPrev = document.getElementById("lightboxPrev");
-    const lightboxNext = document.getElementById("lightboxNext");
-
-    const galleryImages = Array.from(document.querySelectorAll(
-      ".hero-art img, .feature-card img, .wide-band img, .phone-shot img, .cta-panel img"
-    ));
-
-    let activeImageIndex = 0;
-
-    function imageCaption(img) {
-      const explicit = img.getAttribute("alt") || "Wheel of Inspiration preview";
-      const cardTitle = img.closest("article, figure, .hero-art, .wide-band, .cta-panel")?.querySelector("h3, span")?.textContent?.trim();
-      return cardTitle || explicit;
-    }
-
-    function openLightbox(index) {
-      activeImageIndex = (index + galleryImages.length) % galleryImages.length;
-      const img = galleryImages[activeImageIndex];
-      lightboxImage.src = img.currentSrc || img.src;
-      lightboxImage.alt = img.alt || "Wheel of Inspiration preview";
-      lightboxCaption.textContent = imageCaption(img);
-      lightbox.classList.add("open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-      lightboxClose.focus({ preventScroll: true });
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove("open");
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.style.overflow = "";
-    }
-
-    function moveLightbox(direction) {
-      openLightbox(activeImageIndex + direction);
-    }
-
-    galleryImages.forEach((img, index) => {
-      img.setAttribute("tabindex", "0");
-      img.setAttribute("role", "button");
-      img.setAttribute("aria-label", `Open preview: ${imageCaption(img)}`);
-      img.addEventListener("click", () => openLightbox(index));
-      img.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          openLightbox(index);
-        }
-      });
-    });
-
-    lightboxClose.addEventListener("click", closeLightbox);
-    lightboxPrev.addEventListener("click", () => moveLightbox(-1));
-    lightboxNext.addEventListener("click", () => moveLightbox(1));
-
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) closeLightbox();
-    });
-
-    window.addEventListener("keydown", (event) => {
-      if (!lightbox.classList.contains("open")) return;
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowLeft") moveLightbox(-1);
-      if (event.key === "ArrowRight") moveLightbox(1);
-    });
-  </script>
-
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <button class="back-top" id="backTop" type="button" aria-label="Back to top">
@@ -1168,6 +941,123 @@
     </figure>
     <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Next image">›</button>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const year = document.getElementById("year");
+      if (year) year.textContent = new Date().getFullYear();
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            revealObserver.unobserve(entry.target);
+          }
+        }
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+      const progress = document.getElementById("scrollProgress");
+      const backTop = document.getElementById("backTop");
+
+      function updateScrollUI() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = max > 0 ? (window.scrollY / max) * 100 : 0;
+        if (progress) progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+        if (backTop) backTop.classList.toggle("show", window.scrollY > 520);
+      }
+
+      window.addEventListener("scroll", updateScrollUI, { passive: true });
+      updateScrollUI();
+
+      if (backTop) {
+        backTop.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      const lightboxCaption = document.getElementById("lightboxCaption");
+      const lightboxClose = document.getElementById("lightboxClose");
+      const lightboxPrev = document.getElementById("lightboxPrev");
+      const lightboxNext = document.getElementById("lightboxNext");
+
+      const galleryImages = Array.from(document.querySelectorAll(
+        ".hero-art img, .feature-card img, .wide-band img, .phone-shot img, .poster-shot img, .cta-panel img"
+      ));
+
+      let activeImageIndex = 0;
+
+      function imageCaption(img) {
+        const explicit = img.getAttribute("alt") || "Wheel of Inspiration preview";
+        const cardTitle = img
+          .closest("article, figure, .hero-art, .wide-band, .cta-panel")
+          ?.querySelector("h3, span")
+          ?.textContent
+          ?.trim();
+        return cardTitle || explicit;
+      }
+
+      function openLightbox(index) {
+        if (!lightbox || !lightboxImage || !lightboxCaption || galleryImages.length === 0) return;
+        activeImageIndex = (index + galleryImages.length) % galleryImages.length;
+        const img = galleryImages[activeImageIndex];
+
+        lightboxImage.src = img.currentSrc || img.src;
+        lightboxImage.alt = img.alt || "Wheel of Inspiration preview";
+        lightboxCaption.textContent = imageCaption(img);
+
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        lightboxClose?.focus({ preventScroll: true });
+      }
+
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function moveLightbox(direction) {
+        openLightbox(activeImageIndex + direction);
+      }
+
+      galleryImages.forEach((img, index) => {
+        img.setAttribute("tabindex", "0");
+        img.setAttribute("role", "button");
+        img.setAttribute("aria-label", `Open preview: ${imageCaption(img)}`);
+        img.addEventListener("click", (event) => {
+          event.preventDefault();
+          openLightbox(index);
+        });
+        img.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openLightbox(index);
+          }
+        });
+      });
+
+      lightboxClose?.addEventListener("click", closeLightbox);
+      lightboxPrev?.addEventListener("click", () => moveLightbox(-1));
+      lightboxNext?.addEventListener("click", () => moveLightbox(1));
+
+      lightbox?.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (!lightbox?.classList.contains("open")) return;
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowLeft") moveLightbox(-1);
+        if (event.key === "ArrowRight") moveLightbox(1);
+      });
+    });
+  </script>
 
 </body>
 </html>
