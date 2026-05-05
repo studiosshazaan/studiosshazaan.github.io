@@ -1,43 +1,46 @@
-# Wheel of Inspiration website
+# Wheel of Inspiration website - fixed path version
 
-Static GitHub Pages landing page for:
+This version uses root-relative image paths such as:
+
+`/wheelofinspiration/assets/images/hero-wide.jpg`
+
+That is safer for the GitHub Pages URL:
 
 https://studiosshazaan.github.io/wheelofinspiration/
 
-## Deploy correctly
+## Upload instructions
 
-The images will only show if you upload the **entire folder contents**, including:
+Upload the **contents** of this folder into this repository path:
 
-- `index.html`
-- `404.html`
-- `favicon.png`
-- `assets/images/*`
+`studiosshazaan.github.io/wheelofinspiration/`
 
-Do not upload only `index.html`.
+Required structure:
 
-## GitHub Pages setup
+```text
+wheelofinspiration/
+  index.html
+  404.html
+  favicon.png
+  asset-check.html
+  assets/
+    images/
+      hero-wide.jpg
+      app-icon.jpg
+      ...
+```
 
-1. Open the GitHub repository named `wheelofinspiration`.
-2. Upload the contents of this folder to the repository root.
-3. In GitHub, go to **Settings → Pages**.
-4. Set **Source** to `Deploy from a branch`.
-5. Select `main` and `/root`, then Save.
-6. The site should publish at:
-   https://studiosshazaan.github.io/wheelofinspiration/
+## Test after GitHub Pages deploys
 
-## Live links already included
+Open:
 
-Google Play:
+https://studiosshazaan.github.io/wheelofinspiration/asset-check.html
+
+Then test direct image:
+
+https://studiosshazaan.github.io/wheelofinspiration/assets/images/hero-wide.jpg
+
+If the direct image works but the website does not, refresh with Ctrl+F5 or clear browser cache.
+
+## Live Play Store button
+
 https://play.google.com/store/apps/details?id=com.wheelofinspiration&hl=en
-
-Privacy Policy:
-https://studiosshazaan.github.io/wheel_of_inspiration_privacy_policy
-
-## If images still do not show
-
-Check that these URLs work after deployment:
-
-- https://studiosshazaan.github.io/wheelofinspiration/assets/images/hero-wide.jpg
-- https://studiosshazaan.github.io/wheelofinspiration/assets/images/app-icon.jpg
-
-If they 404, the `assets/images` folder was not uploaded to the repository root.
