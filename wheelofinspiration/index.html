@@ -488,6 +488,276 @@
       .hero-actions .btn { width: 100%; }
       .cta-panel .btn { width: 100%; }
     }
+  
+    /* Interactive polish */
+    .scroll-progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      height: 3px;
+      width: 0%;
+      z-index: 60;
+      background: linear-gradient(90deg, var(--gold), var(--purple), var(--pink));
+      box-shadow: 0 0 18px rgba(240,186,106,.58);
+      transition: width .08s linear;
+    }
+
+    .spark-lab {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: stretch;
+      padding: 0;
+    }
+    .spark-copy,
+    .spark-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 28px;
+      box-shadow: 0 18px 54px rgba(0,0,0,.28);
+    }
+    .spark-copy {
+      padding: 28px;
+    }
+    .spark-copy h2 {
+      margin: 16px 0 10px;
+      font-size: clamp(1.7rem, 3.3vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -.04em;
+    }
+    .spark-copy p {
+      color: var(--muted);
+      margin: 0;
+    }
+    .spark-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(26px, 4vw, 40px);
+      isolation: isolate;
+    }
+    .spark-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(240,186,106,.22), transparent 24rem),
+        radial-gradient(circle at 80% 85%, rgba(184,103,255,.18), transparent 24rem);
+      transition: transform .5s ease;
+    }
+    .spark-card.spark-pop::before {
+      transform: rotate(8deg) scale(1.08);
+    }
+    .spark-mark {
+      font-family: Georgia, serif;
+      font-size: 5rem;
+      line-height: .6;
+      color: rgba(240,186,106,.75);
+      text-shadow: 0 0 20px rgba(240,186,106,.18);
+    }
+    .spark-card p {
+      margin: 10px 0 12px;
+      font-size: clamp(1.2rem, 2.5vw, 2rem);
+      line-height: 1.22;
+      font-weight: 900;
+      letter-spacing: -.025em;
+    }
+    .spark-card span {
+      color: var(--gold-2);
+      font-weight: 800;
+    }
+    .spark-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .btn.small {
+      min-height: 40px;
+      padding: 0 14px;
+      font-size: .9rem;
+      box-shadow: none;
+      cursor: pointer;
+    }
+
+    .lightbox-card {
+      cursor: zoom-in;
+      position: relative;
+    }
+    .lightbox-card::after {
+      content: "Tap to preview";
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 4;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #261803;
+      background: linear-gradient(135deg, #fff2ca, #f0ba6a);
+      border: 1px solid rgba(255,255,255,.35);
+      font-size: .78rem;
+      font-weight: 1000;
+      letter-spacing: .02em;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity .2s ease, transform .2s ease;
+      pointer-events: none;
+      box-shadow: 0 10px 26px rgba(0,0,0,.22);
+    }
+    .lightbox-card:hover::after,
+    .lightbox-card:focus-within::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .feature-card,
+    .mini-card,
+    .step,
+    .phone-shot,
+    .poster-shot {
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+    .feature-card:hover,
+    .mini-card:hover,
+    .step:hover,
+    .phone-shot:hover,
+    .poster-shot:hover {
+      transform: translateY(-4px);
+      border-color: rgba(240,186,106,.42);
+      box-shadow: 0 26px 70px rgba(0,0,0,.38);
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(240,186,106,.16), transparent 28rem),
+        rgba(5, 4, 8, .88);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .22s ease;
+    }
+    .lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .lightbox-stage {
+      margin: 0;
+      width: min(1100px, 100%);
+      max-height: 88vh;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+    .lightbox-stage img {
+      width: auto;
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 30px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(240,186,106,.12);
+      background: #08060d;
+    }
+    .lightbox-stage figcaption {
+      color: var(--muted);
+      text-align: center;
+      font-weight: 800;
+      max-width: 900px;
+    }
+    .lightbox-close,
+    .lightbox-nav,
+    .back-top {
+      border: 1px solid rgba(255,255,255,.18);
+      color: var(--text);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(14px);
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .lightbox-close:hover,
+    .lightbox-nav:hover,
+    .back-top:hover {
+      transform: translateY(-2px);
+      border-color: rgba(240,186,106,.48);
+      background: rgba(240,186,106,.18);
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 18px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      width: 50px;
+      height: 68px;
+      border-radius: 999px;
+      font-size: 3rem;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+    }
+    .lightbox-nav.prev { left: 18px; }
+    .lightbox-nav.next { right: 18px; }
+    .back-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 50;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+    }
+    .back-top.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    @media (max-width: 860px) {
+      .spark-lab { grid-template-columns: 1fr; }
+      .lightbox-nav {
+        top: auto;
+        bottom: 18px;
+        width: 46px;
+        height: 46px;
+        font-size: 2.2rem;
+      }
+      .lightbox-nav.prev { left: calc(50% - 58px); }
+      .lightbox-nav.next { right: calc(50% - 58px); }
+      .lightbox-stage img { max-height: 72vh; }
+      .lightbox-card::after { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shine,
+      .reveal,
+      .feature-card,
+      .mini-card,
+      .step,
+      .phone-shot,
+      .poster-shot,
+      .lightbox,
+      .back-top {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -530,7 +800,7 @@
             <span>🏆 Streaks</span>
           </div>
         </div>
-        <div class="hero-art reveal" aria-label="Wheel of Inspiration app preview">
+        <div class="hero-art reveal lightbox-card" aria-label="Wheel of Inspiration app preview">
           <img src="/wheelofinspiration/assets/images/hero-wide.jpg" alt="Wheel of Inspiration marketing preview showing quotes, videos and rewards" />
           <div class="shine" aria-hidden="true"></div>
         </div>
@@ -560,6 +830,24 @@
       </article>
     </section>
 
+    <section class="container spark-lab reveal" aria-label="Interactive daily spark">
+      <div class="spark-copy">
+        <span class="eyebrow">Try a daily spark</span>
+        <h2>Your next quote is one tap away.</h2>
+        <p>Tap the button to shuffle a little inspiration, just like the feeling inside the app.</p>
+      </div>
+      <div class="spark-card" id="sparkCard" role="group" aria-live="polite" aria-label="Daily inspiration quote">
+        <div class="spark-mark">“</div>
+        <p id="sparkQuote">The journey of a thousand miles begins with a single step.</p>
+        <span id="sparkAuthor">— Lao Tzu</span>
+        <div class="spark-actions">
+          <button type="button" class="btn primary small" id="newSparkBtn">New spark</button>
+          <button type="button" class="btn ghost small" id="copySparkBtn">Copy quote</button>
+        </div>
+      </div>
+    </section>
+
+
     <section id="features" class="section">
       <div class="container">
         <div class="section-title center reveal">
@@ -569,28 +857,28 @@
         </div>
 
         <div class="showcase">
-          <article class="feature-card reveal">
+          <article class="feature-card reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/daily-spark.jpg" alt="Discover your daily spark in Wheel of Inspiration" loading="lazy" />
             <div class="feature-copy">
               <h3>Discover your daily spark</h3>
               <p>Start with meaningful quotes and beautifully designed cards every day.</p>
             </div>
           </article>
-          <article class="feature-card reveal">
+          <article class="feature-card reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/search-quotes.jpg" alt="Search quotes by author, mood or category" loading="lazy" />
             <div class="feature-copy">
               <h3>Find the perfect words fast</h3>
               <p>Search by author, mood, or category and jump straight into what resonates.</p>
             </div>
           </article>
-          <article class="feature-card reveal">
+          <article class="feature-card reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/set-reminders.jpg" alt="Set quote reminders in Wheel of Inspiration" loading="lazy" />
             <div class="feature-copy">
               <h3>Set reminders that fit your day</h3>
               <p>Schedule daily inspiration, test reminders, and keep your rhythm.</p>
             </div>
           </article>
-          <article class="feature-card reveal">
+          <article class="feature-card reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/journey.jpg" alt="Track streaks, levels and badges" loading="lazy" />
             <div class="feature-copy">
               <h3>Track streaks, levels & badges</h3>
@@ -603,7 +891,7 @@
 
     <section id="creator" class="section">
       <div class="container">
-        <div class="wide-band reveal">
+        <div class="wide-band reveal lightbox-card">
           <img src="/wheelofinspiration/assets/images/feature-wide.jpg" alt="Wheel of Inspiration features across multiple app screens" loading="lazy" />
         </div>
 
@@ -614,14 +902,14 @@
         </div>
 
         <div class="showcase">
-          <article class="feature-card reveal">
+          <article class="feature-card reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/create-video.jpg" alt="Create quote videos in minutes" loading="lazy" />
             <div class="feature-copy">
               <h3>Create quote videos in minutes</h3>
               <p>Style text, add motion backgrounds, adjust timing, and export polished creations.</p>
             </div>
           </article>
-          <article class="feature-card reveal">
+          <article class="feature-card reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/turn-videos.jpg" alt="Turn quotes into shareable videos" loading="lazy" />
             <div class="feature-copy">
               <h3>From quote to shareable story</h3>
@@ -666,19 +954,19 @@
           <p>Wheel of Inspiration combines discovery, editing, reminders, widgets, and sharing in one focused app.</p>
         </div>
         <div class="phone-grid">
-          <figure class="phone-shot reveal">
+          <figure class="phone-shot reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/screen-home.jpg" alt="Wheel of Inspiration home screen" loading="lazy" />
             <span>Daily quote home</span>
           </figure>
-          <figure class="phone-shot reveal">
+          <figure class="phone-shot reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/screen-editor.jpg" alt="Wheel of Inspiration editor preview" loading="lazy" />
             <span>Quote editor</span>
           </figure>
-          <figure class="phone-shot reveal">
+          <figure class="phone-shot reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/screen-background.jpg" alt="Wheel of Inspiration background and stock video controls" loading="lazy" />
             <span>Stock backgrounds</span>
           </figure>
-          <figure class="phone-shot reveal">
+          <figure class="phone-shot reveal lightbox-card">
             <img src="/wheelofinspiration/assets/images/screen-export.jpg" alt="Wheel of Inspiration export options" loading="lazy" />
             <span>MP4 export</span>
           </figure>
@@ -700,7 +988,7 @@
               <a class="btn ghost" href="https://studiosshazaan.github.io/wheel_of_inspiration_privacy_policy">Privacy Policy</a>
             </div>
           </div>
-          <img src="/wheelofinspiration/assets/images/share-quotes.jpg" alt="Share quote visuals from Wheel of Inspiration" loading="lazy" style="border-radius: 26px; border: 1px solid rgba(255,255,255,.14); box-shadow: 0 18px 50px rgba(0,0,0,.35);" />
+          <img class="lightbox-image" src="/wheelofinspiration/assets/images/share-quotes.jpg" alt="Share quote visuals from Wheel of Inspiration" loading="lazy" style="border-radius: 26px; border: 1px solid rgba(255,255,255,.14); box-shadow: 0 18px 50px rgba(0,0,0,.35);" />
         </div>
       </div>
     </section>
@@ -736,6 +1024,150 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    const progress = document.getElementById("scrollProgress");
+    const backTop = document.getElementById("backTop");
+
+    function updateScrollUI() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+      backTop.classList.toggle("show", window.scrollY > 520);
+    }
+
+    window.addEventListener("scroll", updateScrollUI, { passive: true });
+    updateScrollUI();
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    const sparks = [
+      ["The journey of a thousand miles begins with a single step.", "Lao Tzu"],
+      ["Let the beauty of what you love be what you do.", "Rumi"],
+      ["Believe you can and you’re halfway there.", "Theodore Roosevelt"],
+      ["Small steps every day create remarkable change.", "Wheel of Inspiration"],
+      ["What you seek is already moving toward you.", "Inspired Wisdom"],
+      ["Start where you are. Use what you have. Do what you can.", "Arthur Ashe"],
+      ["Your daily spark can become tomorrow’s momentum.", "Wheel of Inspiration"]
+    ];
+
+    const sparkQuote = document.getElementById("sparkQuote");
+    const sparkAuthor = document.getElementById("sparkAuthor");
+    const sparkCard = document.getElementById("sparkCard");
+    const newSparkBtn = document.getElementById("newSparkBtn");
+    const copySparkBtn = document.getElementById("copySparkBtn");
+    let sparkIndex = 0;
+
+    function showSpark(nextIndex) {
+      sparkIndex = nextIndex % sparks.length;
+      const [quote, author] = sparks[sparkIndex];
+      sparkQuote.textContent = quote;
+      sparkAuthor.textContent = `— ${author}`;
+      sparkCard.classList.remove("spark-pop");
+      void sparkCard.offsetWidth;
+      sparkCard.classList.add("spark-pop");
+    }
+
+    newSparkBtn?.addEventListener("click", () => showSpark(sparkIndex + 1));
+
+    copySparkBtn?.addEventListener("click", async () => {
+      const text = `${sparkQuote.textContent} ${sparkAuthor.textContent}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        copySparkBtn.textContent = "Copied";
+        setTimeout(() => copySparkBtn.textContent = "Copy quote", 1300);
+      } catch (_) {
+        copySparkBtn.textContent = "Select & copy";
+        setTimeout(() => copySparkBtn.textContent = "Copy quote", 1300);
+      }
+    });
+
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxPrev = document.getElementById("lightboxPrev");
+    const lightboxNext = document.getElementById("lightboxNext");
+
+    const galleryImages = Array.from(document.querySelectorAll(
+      ".hero-art img, .feature-card img, .wide-band img, .phone-shot img, .cta-panel img"
+    ));
+
+    let activeImageIndex = 0;
+
+    function imageCaption(img) {
+      const explicit = img.getAttribute("alt") || "Wheel of Inspiration preview";
+      const cardTitle = img.closest("article, figure, .hero-art, .wide-band, .cta-panel")?.querySelector("h3, span")?.textContent?.trim();
+      return cardTitle || explicit;
+    }
+
+    function openLightbox(index) {
+      activeImageIndex = (index + galleryImages.length) % galleryImages.length;
+      const img = galleryImages[activeImageIndex];
+      lightboxImage.src = img.currentSrc || img.src;
+      lightboxImage.alt = img.alt || "Wheel of Inspiration preview";
+      lightboxCaption.textContent = imageCaption(img);
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      lightboxClose.focus({ preventScroll: true });
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    function moveLightbox(direction) {
+      openLightbox(activeImageIndex + direction);
+    }
+
+    galleryImages.forEach((img, index) => {
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("role", "button");
+      img.setAttribute("aria-label", `Open preview: ${imageCaption(img)}`);
+      img.addEventListener("click", () => openLightbox(index));
+      img.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openLightbox(index);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrev.addEventListener("click", () => moveLightbox(-1));
+    lightboxNext.addEventListener("click", () => moveLightbox(1));
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("open")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") moveLightbox(-1);
+      if (event.key === "ArrowRight") moveLightbox(1);
+    });
   </script>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <button class="back-top" id="backTop" type="button" aria-label="Back to top">
+    ↑
+  </button>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image preview">×</button>
+    <button class="lightbox-nav prev" id="lightboxPrev" type="button" aria-label="Previous image">‹</button>
+    <figure class="lightbox-stage">
+      <img id="lightboxImage" alt="" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox-nav next" id="lightboxNext" type="button" aria-label="Next image">›</button>
+  </div>
+
 </body>
 </html>

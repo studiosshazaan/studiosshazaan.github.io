@@ -44,3 +44,17 @@ If the direct image works but the website does not, refresh with Ctrl+F5 or clea
 ## Live Play Store button
 
 https://play.google.com/store/apps/details?id=com.wheelofinspiration&hl=en
+
+
+## Interactive update added
+
+This version adds:
+- click/tap image lightbox previews;
+- keyboard lightbox navigation: Escape, Left, Right;
+- a daily spark quote shuffler;
+- copy quote button;
+- scroll progress bar;
+- back-to-top button;
+- premium hover/tap micro-interactions.
+
+No external JavaScript libraries are required.
